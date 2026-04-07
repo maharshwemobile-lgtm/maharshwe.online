@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MaharShwe Currency Exchange</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 MaharShwe Exchange</h1>
+            <p class="live-badge">Live Rate 🔔</p>
+            <p class="update-time" id="updateTime">--:--:--</p>
+        </header>
+
+        <!-- Rate Display Cards -->
+        <div class="rate-cards">
+            <div class="card">
+                <span class="label">🇹🇭 THB → MMK (KPAY)</span>
+                <span class="value" id="rateKpay">--.--</span>
+            </div>
+            <div class="card">
+                <span class="label">🇹🇭 THB → MMK (Cash)</span>
+                <span class="value" id="rateCash">--.--</span>
+            </div>
+            <div class="card">
+                <span class="label">🇲🇲 MMK → THB (Bank Deposit)</span>
+                <span class="value" id="rateBankDeposit">--.--</span>
+            </div>
+        </div>
+
+        <!-- Exchange Direction Selector -->
+        <div class="direction-selector">
+            <button id="btnMmkToThb" class="dir-btn">ကျပ်ပေးဘတ်ယူ</button>
+            <button id="btnThbToMmk" class="dir-btn active">ဘတ်ပေးကျပ်ယူ</button>
+        </div>
+
+        <!-- Dynamic Payment Method (only appears for THB->MMK) -->
+        <div id="methodContainer" class="method-container">
+            <div class="method-options">
+                <label class="method-radio">
+                    <input type="radio" name="paymentMethod" value="kpay" checked> KPAY
+                </label>
+                <label class="method-radio">
+                    <input type="radio" name="paymentMethod" value="cash"> Cash
+                </label>
+            </div>
+        </div>
+
+        <!-- Calculator -->
+        <div class="calculator">
+            <div class="input-group">
+                <label id="fromCurrencyLabel">သင်ပေးမည့်ငွေ (THB)</label>
+                <input type="number" id="amountInput" placeholder="0.00" step="any" value="1000">
+                <span class="currency-symbol" id="fromSymbol">THB</span>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="input-group">
+                <label id="toCurrencyLabel">သင်ရမည့်ငွေ (MMK)</label>
+                <input type="text" id="resultOutput" readonly placeholder="0.00">
+                <span class="currency-symbol" id="toSymbol">MMK</span>
+            </div>
+        </div>
+
+        <!-- Action Button -->
+        <button id="confirmBtn" class="confirm-btn">✅ ငွေလွဲပြီ</button>
+
+        <!-- Modal for Bank Info -->
+        <div id="infoModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>📋 ငွေလွှဲရန် အချက်အလက်</h3>
+                <div id="modalBody"></div>
+                <button id="copyAllBtn" class="copy-btn">Copy All</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>We accept: KBZ Bank | KBZ Pay | True Money | PromptPay | Thailand Bank Account</p>
+            <p class="disclaimer">* စျေးနှုန်းများတွင် 4% ဝန်ဆောင်ခ ပါဝင်ပြီးသား။ Admin နှင့် အတည်ပြုမှသာ အကျုံးဝင်ပါသည်။</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

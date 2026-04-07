@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0b2b26 0%, #0a1f1c 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #e0e0e0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(30, 40, 35, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 40px;
+    padding: 24px 20px 32px;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,215,0,0.2);
+}
+
+h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    background: linear-gradient(135deg, #FFD966, #FFB347);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 8px;
+}
+
+.live-badge {
+    text-align: center;
+    font-size: 0.8rem;
+    background: #c0392b;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin: 0 auto 8px;
+    width: fit-content;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.update-time {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.rate-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #1e2a27;
+    border-radius: 28px;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #f1c40f;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.card .label {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.card .value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #f9e45b;
+}
+
+.direction-selector {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.dir-btn {
+    flex: 1;
+    background: #2c3e34;
+    border: none;
+    padding: 12px;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ccc;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dir-btn.active {
+    background: #f1c40f;
+    color: #1e2a27;
+    box-shadow: 0 4px 12px rgba(241,196,15,0.3);
+}
+
+.method-container {
+    background: #1e2a27;
+    border-radius: 32px;
+    padding: 12px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.method-options {
+    display: flex;
+    gap: 32px;
+}
+
+.method-radio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.calculator {
+    background: #0f1917;
+    border-radius: 32px;
+    padding: 20px;
+    margin-bottom: 28px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+    color: #bbb;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px 70px 16px 20px;
+    background: #1e2a27;
+    border: 1px solid #3a4a44;
+    border-radius: 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #f1c40f;
+}
+
+.currency-symbol {
+    position: absolute;
+    right: 20px;
+    bottom: 16px;
+    font-weight: 700;
+    color: #f1c40f;
+}
+
+.arrow {
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 8px 0;
+    color: #f1c40f;
+}
+
+.confirm-btn {
+    width: 100%;
+    background: #27ae60;
+    border: none;
+    padding: 16px;
+    border-radius: 60px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-bottom: 20px;
+}
+
+.confirm-btn:hover {
+    background: #2ecc71;
+    transform: scale(0.98);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #1e2a27;
+    max-width: 500px;
+    width: 90%;
+    border-radius: 36px;
+    padding: 24px;
+    position: relative;
+    border-top: 6px solid #f1c40f;
+}
+
+.close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+    color: #f1c40f;
+}
+
+.bank-detail {
+    background: #0f1917;
+    padding: 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    word-break: break-word;
+}
+
+.copy-btn {
+    background: #3498db;
+    border: none;
+    padding: 12px;
+    border-radius: 40px;
+    font-weight: bold;
+    margin-top: 16px;
+    width: 100%;
+    cursor: pointer;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.7rem;
+    margin-top: 20px;
+    color: #7f8c8d;
+}
+
+.disclaimer {
+    margin-top: 8px;
+    font-size: 0.65rem;
+}
